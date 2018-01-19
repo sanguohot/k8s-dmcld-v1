@@ -4,5 +4,4 @@ set -o errexit
 
 dmcld-default/build.sh
 dmcld-proxy/build.sh
-dmcld-other/build.sh
 dmcld-drp/build.sh

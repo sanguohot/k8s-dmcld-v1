@@ -352,5 +352,5 @@ data:
     cpool.maxIdleTimeExcessConnections=1800
 kind: ConfigMap
 metadata:
-  name: dmcld-${DMCLD_V1_SERVER_ID}-config
+  name: ${DMCLD_V1_BASE}-config
   namespace: ${DMCLD_V1_NAMESPACE}
