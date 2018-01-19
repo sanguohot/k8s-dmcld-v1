@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dmcld-drp-svc
+  namespace: ${DMCLD_V1_NAMESPACE}
+  labels:
+    app: dmcld-drp-svc
+spec:
+  selector:
+    app: dmcld-drp-deploy
+  ports:
+    - name: http
+      port: 3080
+      targetPort: 3080
+      nodePort: 3080      
+    - name: remote-http
+      port: 3030
+      targetPort: 3030
+      nodePort: 3030      
+    - name: remote-tel
+      port: 3333
+      targetPort: 3333
+      nodePort: 3333      
+    - name: command
+      port: 3100
+      targetPort: 3100
+      nodePort: 3100      
+    - name: data-http
+      port: 3102
+      targetPort: 3102
+      nodePort: 3102      
+    - name: data-term-tel
+      port: 3101
+      targetPort: 3101
+      nodePort: 3101      
+    - name: data-term-ssh
+      port: 3103
+      targetPort: 3103
+      nodePort: 3103      
+    - name: data-brow-tel
+      port: 3201
+      targetPort: 3201
+      nodePort: 3201      
+    - name: server-http
+      port: 3200
+      targetPort: 3200
+      nodePort: 3200
+  type: NodePort

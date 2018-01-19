@@ -1,0 +1,48 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dmcld-drp-deploy
+  namespace: ${DMCLD_V1_NAMESPACE}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dmcld-drp-deploy
+    spec:
+      containers:
+      - name: web
+        image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/drpserver:1.2
+        imagePullPolicy: Always
+        #command: ["/bin/sh","cat /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties"]
+        ports:
+        - name: http
+          containerPort: 3080
+        - name: remote-http
+          containerPort: 3030
+        - name: remote-tel
+          containerPort: 3333
+        - name: command
+          containerPort: 3100
+        - name: data-http
+          containerPort: 3102
+        - name: data-term-tel
+          containerPort: 3101
+        - name: data-term-ssh
+          containerPort: 3103
+        - name: data-brow-tel
+          containerPort: 3201   
+        - name: server-http
+          containerPort: 3200
+        volumeMounts:  
+        - mountPath: /opt/drp/drpserver/etc/config.js
+          subPath: config.js
+          name: dmcld-drp-config
+      volumes:
+        - name: dmcld-drp-config
+          configMap:
+            name: dmcld-drp-config
+            items:
+            - key: first # 使用configmap里面key对应的数据
+              path: config.js # 代表/opt/drp/drpserver/etc/config.js文件              
+      restartPolicy: Always

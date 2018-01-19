@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dmcld-proxy-svc
+  namespace: ${DMCLD_V1_NAMESPACE}
+  labels:
+    app: dmcld-proxy-svc
+spec:
+  selector:
+    app: dmcld-proxy-deploy
+  ports:
+    - port: 8888
+      targetPort: 8888
+      nodePort: 8888
+  type: NodePort

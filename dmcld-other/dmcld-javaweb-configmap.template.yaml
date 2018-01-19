@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  first: |
+    #jdbc.driverClassName=com.mysql.jdbc.Driver
+    #jdbc.url=jdbc\:mysql\://172.16.50.75\:3306/simserver?zeroDateTimeBehavior\=convertToNull
+    jdbc.url=jdbc\:mysql\://${DMCLD_V1_OTHER_DB_ADDRESS}\:${DMCLD_V1_OTHER_DB_PORT}/${DMCLD_V1_OTHER_DB_NAME}?zeroDateTimeBehavior\=convertToNull
+    jdbc.username=${DMCLD_V1_OTHER_DB_USER}
+    jdbc.password=${DMCLD_V1_OTHER_DB_PASSWORD}
+    # Time to wait for an open connection before timing out (in milliseconds) 
+    cpool.checkoutTimeout=10000
+    # Connection pool size 
+    cpool.minPoolSize=4
+    cpool.maxPoolSize=10
+    # How long to keep unused connections around(in seconds)
+    # Note: MySQL times out idle connections after 8 hours(28,800 seconds)
+    # so ensure this value is below MySQL idle timeout 
+    cpool.maxIdleTime=25200
+    # Acquiring new connections is slow, so eagerly retrieve extra connections
+    # when current pool size is reached 
+    cpool.acquireIncrement=2
+    # How long to hang on to excess unused connections after traffic spike (in seconds) 
+    cpool.maxIdleTimeExcessConnections=1800
+kind: ConfigMap
+metadata:
+  name: dmcld-javaweb-config
+  namespace: ${DMCLD_V1_NAMESPACE}

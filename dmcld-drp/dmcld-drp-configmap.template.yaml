@@ -1,0 +1,43 @@
+apiVersion: v1
+data:
+  first: |
+    exports.prop = {
+        "server_type":'dmcld',//***需要修改和当前服务器模式相同
+        "dm_host":"dmcld-javaweb-svc",//***dmcld模式使用，normal模式无需用到
+        "dm_port":8888,//***dmcld模式使用，normal模式无需用到
+        "dm_action":"/drpApiManager!getSession.action",//***dmcld模式使用，normal模式无需用到
+        "mysql_url": "db-01-mysql",//数据库ip
+        "database":"simserver",//***需要修改和当前服务器db相同
+        "mysql_user": "root",//***需要修改和当前服务器db用户相同
+        "mysql_pwd": "MTIzNDU2",//***需要修改和当前服务器db密码相同
+        "redis_host": "db-1001-redis",//redis ip
+        "redis_port": "6379",//redis端口
+        "redis_pwd": "MTIzNDU2",//redis密码
+        "redis_db": "8",//redis db
+        "product_id":66,//服务器类型
+        "sys_uuid": "66",//服务器id
+        "websocket_port_for_telnet": 3201,//web版telnet浏览器接入端口
+        "tcp_port_for_telnet": 3101,//telnet数据通道端口
+        "tcp_port_for_web": 3102,//web数据通道端口
+        "tcp_port_for_ssh": 3103,//ssh数据通道端口
+        "http_header":"http",
+        "tcp_url": "k8s-test-master.dmcld.com",//***数据通道ip或者域名，需要修改和当前服务器ip相同
+        "ver": "1.0",//协议版本
+        "http_port": 3080,//web服务器端口
+        "remote_http_port": 3030,//远程web服务器端口
+        "tcp_port":3100,//设备注册端口，也即命令通道端口
+        "telnet_client_port":3333,//客户端版telnet端口，接入客户端
+        "rmsrv_http_port":3200,//rmsrv进程http端口，用以访问进程数据
+        "log_path":'/opt/drp/log/',//***log4js日志路径，windows linux有分别
+        "log_level":"warn",//***log4js日志级别，正式环境和测试环境有分别
+        "file_path":'/opt/drp/file/',//***web版telnet命令与响应日志文件路径，windows linux有分别
+        "file_split":"/",//***windows linux有分别
+        "server_path":'/opt/drp/drpserver/',//***项目路径，windows linux有分别
+        "prov_server":"server02.dmcld.com",
+        "prov_port":8888,
+        "codeline":false//日志打印时，是否显示代码行数开关
+    };
+kind: ConfigMap
+metadata:
+  name: dmcld-drp-config
+  namespace: ${DMCLD_V1_NAMESPACE}

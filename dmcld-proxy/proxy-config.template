@@ -1,0 +1,22 @@
+{
+	 "log":{
+             "path":"/opt/log",
+             "maxAge":0,
+             "rotation":0
+      },
+	 "redis":{
+			 "redisDNS":"${DMCLD_V1_PROXY_REDIS_ADDRESS}",
+			 "redisPort":"${DMCLD_V1_PROXY_REDIS_PORT}",
+			 "redisPassword":"${DMCLD_V1_PROXY_REDIS_PASSWORD}"
+	  },
+	  "mysql":{
+			  "name":"${DMCLD_V1_PROXY_DB_ADDRESS}",
+			  "user":"${DMCLD_V1_PROXY_DB_USER}",
+			  "pass":"${DMCLD_V1_PROXY_DB_PASSWORD}",
+			  "port":"${DMCLD_V1_PROXY_DB_PORT}",
+			  "dbname":"${DMCLD_V1_PROXY_DB_NAME}"
+	  },
+      "K8SDNS":"k8s-test.dmcld.com",
+      "Host":"192.168.0.1",
+      "HostPort":"8080"
+}

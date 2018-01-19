@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dmcld-proxy-deploy
+  namespace: ${DMCLD_V1_NAMESPACE}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dmcld-proxy-deploy
+    spec:
+      containers:
+      - name: proxy
+        image: hub.c.163.com/felix0081/filterfork8s-svc:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+        volumeMounts:  
+        - mountPath: /etc/config # 这里是路径
+          name: dmcld-proxy-config
+      volumes:
+        - name: dmcld-proxy-config
+          configMap:
+            name: dmcld-proxy-config
+            items:
+            - key: first # 使用configmap里面key对应的数据
+              path: config # 代表/etc/config/config文件
+      restartPolicy: Always
