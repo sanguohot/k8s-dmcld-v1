@@ -1,20 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${DMCLD_V1_BASE}-svc
+  name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-svc
   namespace: ${DMCLD_V1_NAMESPACE}
   labels:
-    app: ${DMCLD_V1_BASE}-svc
+    app: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-svc
 spec:
   selector:
-    app: ${DMCLD_V1_BASE}-deploy
+    app: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-deploy
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 8080
       name: simsrv
     - port: 8888
       targetPort: 8888
-      nodePort: 8888
       name: web     
-  type: NodePort
+  type: ClusterIP
