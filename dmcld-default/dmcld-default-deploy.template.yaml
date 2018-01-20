@@ -16,31 +16,47 @@ spec:
         #command: ["/bin/sh","cat /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties"]
         ports:
         - containerPort: 8888
-        volumeMounts:  
-        - mountPath: /dinstar/cfg # 这里是路径
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+        volumeMounts:
         #注意java配置以文件的形式挂载防止目录被覆盖
         - mountPath: /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties
           subPath: database.properties
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-java
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-db
+        - mountPath: /var/lib/tomcat6/webapps/web/WEB-INF/classes/simcloud.properties
+          subPath: simcloud.properties
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-simcloud
+        - mountPath: /var/lib/tomcat6/conf/context.xml
+          subPath: context.xml
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
       - name: simsrv
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/simsrv:01600014
         ports:
         - containerPort: 8080
         volumeMounts:  
         - mountPath: /dinstar/cfg # 这里是路径
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
       volumes:
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
           configMap:
             name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
             - key: first # 使用configmap里面key对应的数据
               path: config # 代表/dinstar/cfg/config文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-java
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-db
           configMap:
             name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
-            - key: java # 使用configmap里面key对应的数据
-              path: database.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/database.properties文件              
+            - key: javaweb-db # 使用configmap里面key对应的数据
+              path: database.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/database.properties文件
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-simcloud
+          configMap:
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            items:
+            - key: javaweb-simcloud # 使用configmap里面key对应的数据
+              path: simcloud.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/simcloud.properties文件
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
+          configMap:
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            items:
+            - key: tomcat6 # 使用configmap里面key对应的数据
+              path: context.xml # 代表/var/lib/tomcat6/conf/context.xml文件
       restartPolicy: Always
