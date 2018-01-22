@@ -30,7 +30,12 @@ spec:
       - name: simsrv
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/simsrv:01600014
         ports:
-        - containerPort: 8080
+        - name: simsrv-http
+          containerPort: 8080
+          protocol: TCP
+        - name: simsrv-command
+          containerPort: 2022
+          protocol: UDP
         volumeMounts:  
         - mountPath: /dinstar/cfg # 这里是路径
           name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv

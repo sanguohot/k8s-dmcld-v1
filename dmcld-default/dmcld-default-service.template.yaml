@@ -9,10 +9,16 @@ spec:
   selector:
     app: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-deploy
   ports:
-    - port: 8080
+    - name: simsrv-http
+      port: 8080
       targetPort: 8080
-      name: simsrv
+      protocol: TCP
+    - name: simsrv-command
+      port: 2022
+      targetPort: 2022
+      protocol: UDP
     - port: 8888
       targetPort: 8888
-      name: web     
+      name: web
+      protocol: TCP
   type: ClusterIP
