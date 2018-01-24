@@ -25,5 +25,5 @@ data:
     }
 kind: ConfigMap
 metadata:
-  name: dmcld-proxy-config
+  name: ${DMCLD_V1_PROXY_NAME}-config
   namespace: ${DMCLD_V1_NAMESPACE}
