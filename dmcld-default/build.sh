@@ -1,5 +1,5 @@
 #!/bin/bash
-source config
+source dmcld-default/config
 yaml_array=(dmcld-default-deploy.template.yaml dmcld-default-configmap.template.yaml dmcld-default-service.template.yaml)
 #要将$a分割开，先存储旧的分隔符
 OLD_IFS="$IFS"

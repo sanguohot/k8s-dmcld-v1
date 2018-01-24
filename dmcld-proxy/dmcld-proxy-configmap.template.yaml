@@ -18,7 +18,10 @@ data:
                   "pass":"${DMCLD_V1_PROXY_DB_PASSWORD}",
                   "port":"${DMCLD_V1_PROXY_DB_PORT}",
                   "dbname":"${DMCLD_V1_PROXY_DB_NAME}"
-          }
+          },
+          "K8SDNS":"k8s-test.dmcld.com",
+          "Host":"192.168.0.1",
+          "HostPort":"8080"
     }
 kind: ConfigMap
 metadata:
