@@ -14,4 +14,4 @@ DMCLD_V1_PROXY_PORT_TCP_8080=8080
 DMCLD_V1_PROXY_PORT_UDP_2022=2022
 DMCLD_V1_PROXY_IMAGE_8888=hub.c.163.com/felix0081/filterfork8s-svc:latest
 DMCLD_V1_PROXY_IMAGE_8080=hub.c.163.com/felix0081/filterfork8s80-svc:latest
-DMCLD_V1_PROXY_IMAGE_2022=
+DMCLD_V1_PROXY_IMAGE_2022=hub.c.163.com/felix0081/filterfork8s80-svc:latest
