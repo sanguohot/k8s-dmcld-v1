@@ -22,7 +22,7 @@ spec:
       volumes:
         - name: ${DMCLD_V1_PROXY_NAME}-volume
           configMap:
-            name: dmcld-proxy-config
+            name: ${DMCLD_V1_PROXY_NAME}-config
             items:
             - key: first # 使用configmap里面key对应的数据
               path: config # 代表/etc/config/config文件
