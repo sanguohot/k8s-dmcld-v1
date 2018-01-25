@@ -16,8 +16,8 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            memory: "${DMCLD_V1_DRP_RESOURCE_LIMIT_CPU}"
-            cpu: "${DMCLD_V1_DRP_RESOURCE_LIMIT_MEM}"
+            memory: "${DMCLD_V1_DRP_RESOURCE_LIMIT_MEM}"
+            cpu: "${DMCLD_V1_DRP_RESOURCE_LIMIT_CPU}"
           requests:
             memory: "${DMCLD_V1_DRP_RESOURCE_REQUEST_MEM}"
             cpu: "${DMCLD_V1_DRP_RESOURCE_REQUEST_CPU}"
