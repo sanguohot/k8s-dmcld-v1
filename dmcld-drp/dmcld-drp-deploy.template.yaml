@@ -14,6 +14,13 @@ spec:
       - name: web
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/drpserver:1.2
         imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "${DMCLD_V1_DRP_RESOURCE_LIMIT_CPU}"
+            cpu: "${DMCLD_V1_DRP_RESOURCE_LIMIT_MEM}"
+          requests:
+            memory: "${DMCLD_V1_DRP_RESOURCE_REQUEST_MEM}"
+            cpu: "${DMCLD_V1_DRP_RESOURCE_REQUEST_CPU}"
         #command: ["/bin/sh","cat /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties"]
         ports:
         - name: http
