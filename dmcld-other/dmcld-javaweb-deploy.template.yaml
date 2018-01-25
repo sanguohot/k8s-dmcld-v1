@@ -13,6 +13,7 @@ spec:
       containers:
       - name: web
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/javaweb:latest
+        imagePullPolicy: Always
         #command: ["/bin/sh","cat /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties"]
         ports:
         - containerPort: 8888
