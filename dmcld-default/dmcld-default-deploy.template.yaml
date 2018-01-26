@@ -14,13 +14,13 @@ spec:
       - name: web
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/javaweb:latest
         imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "${DMCLD_V1_JAVAWEB_RESOURCE_LIMIT_MEM}"
-            cpu: "${DMCLD_V1_JAVAWEB_RESOURCE_LIMIT_CPU}"
-          requests:
-            memory: "${DMCLD_V1_JAVAWEB_RESOURCE_REQUEST_MEM}"
-            cpu: "${DMCLD_V1_JAVAWEB_RESOURCE_REQUEST_CPU}"
+#        resources:
+#          limits:
+#            memory: "${DMCLD_V1_JAVAWEB_RESOURCE_LIMIT_MEM}"
+#            cpu: "${DMCLD_V1_JAVAWEB_RESOURCE_LIMIT_CPU}"
+#          requests:
+#            memory: "${DMCLD_V1_JAVAWEB_RESOURCE_REQUEST_MEM}"
+#            cpu: "${DMCLD_V1_JAVAWEB_RESOURCE_REQUEST_CPU}"
         #command: ["/bin/sh","cat /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties"]
         ports:
         - containerPort: 8888
@@ -38,13 +38,13 @@ spec:
       - name: simsrv
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/simsrv:01600014
         imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "${DMCLD_V1_SIMSRV_RESOURCE_LIMIT_MEM}"
-            cpu: "${DMCLD_V1_SIMSRV_RESOURCE_LIMIT_CPU}"
-          requests:
-            memory: "${DMCLD_V1_SIMSRV_RESOURCE_REQUEST_MEM}"
-            cpu: "${DMCLD_V1_SIMSRV_RESOURCE_REQUEST_CPU}"
+#        resources:
+#          limits:
+#            memory: "${DMCLD_V1_SIMSRV_RESOURCE_LIMIT_MEM}"
+#            cpu: "${DMCLD_V1_SIMSRV_RESOURCE_LIMIT_CPU}"
+#          requests:
+#            memory: "${DMCLD_V1_SIMSRV_RESOURCE_REQUEST_MEM}"
+#            cpu: "${DMCLD_V1_SIMSRV_RESOURCE_REQUEST_CPU}"
         ports:
         - name: simsrv-http
           containerPort: 8080

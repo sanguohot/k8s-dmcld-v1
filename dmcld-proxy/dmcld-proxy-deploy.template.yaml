@@ -14,13 +14,13 @@ spec:
       - name: proxy
         image: ${DMCLD_V1_PROXY_IMAGE}
         imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "${DMCLD_V1_PROXY_RESOURCE_LIMIT_MEM}"
-            cpu: "${DMCLD_V1_PROXY_RESOURCE_LIMIT_CPU}"
-          requests:
-            memory: "${DMCLD_V1_PROXY_RESOURCE_REQUEST_MEM}"
-            cpu: "${DMCLD_V1_PROXY_RESOURCE_REQUEST_CPU}"
+#        resources:
+#          limits:
+#            memory: "${DMCLD_V1_PROXY_RESOURCE_LIMIT_MEM}"
+#            cpu: "${DMCLD_V1_PROXY_RESOURCE_LIMIT_CPU}"
+#          requests:
+#            memory: "${DMCLD_V1_PROXY_RESOURCE_REQUEST_MEM}"
+#            cpu: "${DMCLD_V1_PROXY_RESOURCE_REQUEST_CPU}"
         ports:
         - containerPort: ${DMCLD_V1_PROXY_PORT}
         volumeMounts:  
