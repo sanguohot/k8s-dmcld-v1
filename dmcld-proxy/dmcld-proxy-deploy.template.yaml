@@ -23,6 +23,7 @@ spec:
 #            cpu: "${DMCLD_V1_PROXY_RESOURCE_REQUEST_CPU}"
         ports:
         - containerPort: ${DMCLD_V1_PROXY_PORT}
+          protocol: ${DMCLD_V1_PROXY_PROTOCOL}
         volumeMounts:  
         - mountPath: /etc/config # 这里是路径
           name: ${DMCLD_V1_PROXY_NAME}-volume
