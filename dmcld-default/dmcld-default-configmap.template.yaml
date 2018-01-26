@@ -462,6 +462,9 @@ data:
     report.switch=off
     predefineConfig.switch=off
     cdn.host=dl.dmcld.com
+    drp_outer_address=k8s-test-master.dmcld.com
+    drp_inner_address=dmcld-drp-svc
+    drp_port=3080
 kind: ConfigMap
 metadata:
   name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
