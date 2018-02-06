@@ -1,6 +1,6 @@
 DMCLD_V1_SERVER_IDS=1,other
 
-DMCLD_V1_DB_ADDRESS=db-01-mysql
+DMCLD_V1_DB_ADDRESS=k8s-dmcldv1-db-inner.dmcld.com
 DMCLD_V1_DB_PORT=3306
 DMCLD_V1_DB_NAME_BASE=simserver
 DMCLD_V1_DB_USER=root
