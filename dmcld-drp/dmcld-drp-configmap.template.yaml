@@ -22,6 +22,7 @@ data:
         "tcp_port_for_ssh": 3103,//ssh数据通道端口
         "http_header":"http",
         "tcp_url": "${DMCLD_V1_DRP_OUTTER_ADDRESS}",//***数据通道ip或者域名，需要修改和当前服务器ip相同
+        "drp_rmsrv_inner": "${DMCLD_V1_DRP_INNER_ADDRESS}",//***数据通道ip或者域名，需要修改和当前服务器ip相同
         "ver": "1.0",//协议版本
         "http_port": 3080,//web服务器端口
         "remote_http_port": 3030,//远程web服务器端口
