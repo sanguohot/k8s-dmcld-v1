@@ -19,8 +19,8 @@ data:
                   "port":"${DMCLD_V1_PROXY_DB_PORT}",
                   "dbname":"${DMCLD_V1_PROXY_DB_NAME}"
           },
-          "K8SDNS":"k8s-test.dmcld.com",
-          "Host":"192.168.0.1",
+          "K8SDNS":"k8s-dmcldv1-master.dmcld.com",
+          "Host":"172.17.0.1",
           "HostPort":"8080",
           "timeout":10
     }
