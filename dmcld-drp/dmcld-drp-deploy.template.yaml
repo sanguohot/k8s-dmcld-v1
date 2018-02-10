@@ -45,11 +45,17 @@ spec:
         - mountPath: /opt/drp/drpserver/etc/config.js
           subPath: config.js
           name: dmcld-drp-config
+        - mountPath: /opt/drp/log
+          subPath: dmcld-drp-log
+          name: ${DMCLD_V1_BASE}-nfs-volume
       volumes:
         - name: dmcld-drp-config
           configMap:
             name: dmcld-drp-config
             items:
             - key: first # 使用configmap里面key对应的数据
-              path: config.js # 代表/opt/drp/drpserver/etc/config.js文件              
+              path: config.js # 代表/opt/drp/drpserver/etc/config.js文件
+        - name: ${DMCLD_V1_BASE}-nfs-volume
+          persistentVolumeClaim:
+            claimName: ${DMCLD_V1_BASE}-nfs-pvc
       restartPolicy: Always
