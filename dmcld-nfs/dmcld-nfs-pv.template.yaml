@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ${DMCLD_V1_BASE}-nfs-pv
+  namespace: ${DMCLD_V1_NAMESPACE}
+spec:
+  capacity:
+    storage: ${DMCLD_V1_NFS_SIZE}
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: ${DMCLD_V1_NFS_PATH}
+    server: ${DMCLD_V1_NFS_ADDRESS}

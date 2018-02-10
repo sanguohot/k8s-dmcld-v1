@@ -2,19 +2,19 @@ apiVersion: v1
 data:
   first: |
     <?xml version="1.0" encoding="utf-8"?>
-    <config version="1.0">
-        <param name="telnet port" value="23" />
-        <provision>
-            <param name="url" value="" />
-            <param name="interval" value="86400" />
-            <param name="provison_account" value="" />
-            <param name="provison_password" value="" />
-            <param name="proxy_domain" value="" />
-            <param name="proxy_port" value="" />
-            <param name="proxy_account" value="" />
-            <param name="proxy_password" value="" />
-        </provision>
-        <syslog>
+                    <config version="1.0">
+                        <param name="telnet port" value="23" />
+                        <provision>
+                            <param name="url" value="" />
+                            <param name="interval" value="86400" />
+                            <param name="provison_account" value="" />
+                            <param name="provison_password" value="" />
+                            <param name="proxy_domain" value="" />
+                            <param name="proxy_port" value="" />
+                            <param name="proxy_account" value="" />
+                            <param name="proxy_password" value="" />
+                        </provision>
+                        <syslog>
             <param name="flag" value="off" />
             <param name="level" value="1" />
             <param name="cdr" value="off" />

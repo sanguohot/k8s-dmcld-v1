@@ -35,6 +35,9 @@ spec:
         - mountPath: /var/lib/tomcat6/conf/context.xml
           subPath: context.xml
           name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
+        - mountPath: /var/lib/tomcat6/logs
+          subPath: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-log-tomcat6
+          name: ${DMCLD_V1_BASE}-nfs-volume
       - name: simsrv
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/simsrv:01600014
         imagePullPolicy: Always
@@ -55,6 +58,9 @@ spec:
         volumeMounts:  
         - mountPath: /dinstar/cfg # 这里是路径
           name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
+        - mountPath: /var/log
+          subPath: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-log-simsrv
+          name: ${DMCLD_V1_BASE}-nfs-volume
       volumes:
         - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
           configMap:
@@ -80,4 +86,7 @@ spec:
             items:
             - key: tomcat6 # 使用configmap里面key对应的数据
               path: context.xml # 代表/var/lib/tomcat6/conf/context.xml文件
+        - name: ${DMCLD_V1_BASE}-nfs-volume
+          persistentVolumeClaim:
+            claimName: ${DMCLD_V1_BASE}-nfs-pvc
       restartPolicy: Always

@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ${DMCLD_V1_BASE}-nfs-pvc
+  namespace: ${DMCLD_V1_NAMESPACE}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: ${DMCLD_V1_NFS_SIZE}
+  volumeName: ${DMCLD_V1_BASE}-nfs-pv
