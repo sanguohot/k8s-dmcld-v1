@@ -46,7 +46,7 @@ spec:
           subPath: config.js
           name: dmcld-drp-config
         - mountPath: /opt/drp/log
-          subPath: dmcld-drp-log
+          subPath: dmcld-drp-log # 代表/nfs path/dmcld-drp-log目录映射到/opt/drp/log目录
           name: ${DMCLD_V1_BASE}-nfs-volume
       volumes:
         - name: dmcld-drp-config

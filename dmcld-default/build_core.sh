@@ -4,8 +4,11 @@ IN_CONFIG_FILE=config
 source dmcld-default/${IN_CONFIG_FILE}
 DMCLD_V1_SERVER_ID=$1
 DMCLD_V1_DB_OTHER="other"
+DMCLD_V1_DB_TEST="test"
 if [ ${DMCLD_V1_SERVER_ID} = ${DMCLD_V1_DB_OTHER} ] ; then
     DMCLD_V1_DB_NAME="simserver"
+elif [ ${DMCLD_V1_SERVER_ID} = ${DMCLD_V1_DB_TEST} ] ; then
+    DMCLD_V1_DB_NAME="test111"
 else
     DMCLD_V1_DB_NAME=$DMCLD_V1_BASE-$DMCLD_V1_SERVER_ID
 fi
