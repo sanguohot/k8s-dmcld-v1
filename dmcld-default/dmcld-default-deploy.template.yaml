@@ -10,6 +10,8 @@ spec:
       labels:
         app: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-deploy
     spec:
+      nodeSelector:
+        nodeResource: "large"
       containers:
       - name: web
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/javaweb:latest

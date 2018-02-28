@@ -10,6 +10,8 @@ spec:
       labels:
         app: dmcld-drp-deploy
     spec:
+      nodeSelector:
+        nodeResource: "normal"
       containers:
       - name: web
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/drpserver:1.2
