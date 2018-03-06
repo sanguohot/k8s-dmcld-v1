@@ -333,7 +333,7 @@ data:
   javaweb-db: |
     #jdbc.driverClassName=com.mysql.jdbc.Driver
     #jdbc.url=jdbc\:mysql\://172.16.50.75\:3306/simserver?zeroDateTimeBehavior\=convertToNull
-    jdbc.url=jdbc\:mysql\://${DMCLD_V1_DB_ADDRESS}\:${DMCLD_V1_DB_PORT}/${DMCLD_V1_DB_NAME}?zeroDateTimeBehavior\=convertToNull
+    jdbc.url=jdbc\:mysql\://${DMCLD_V1_DB_ADDRESS}\:${DMCLD_V1_DB_PORT}/${DMCLD_V1_DB_NAME}?zeroDateTimeBehavior\=convertToNull&useUnicode=true&characterEncoding=utf-8
     jdbc.username=${DMCLD_V1_DB_USER}
     jdbc.password=${DMCLD_V1_DB_PASSWORD}
     # Time to wait for an open connection before timing out (in milliseconds)
