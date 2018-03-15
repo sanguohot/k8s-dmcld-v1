@@ -30,15 +30,15 @@ spec:
         #注意java配置以文件的形式挂载防止目录被覆盖
         - mountPath: /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties
           subPath: database.properties
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-db
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-db
         - mountPath: /var/lib/tomcat6/webapps/web/WEB-INF/classes/simcloud.properties
           subPath: simcloud.properties
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-simcloud
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-simcloud
         - mountPath: /dinstar/cfg # 这里是路径
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-config_test
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-config
         - mountPath: /var/lib/tomcat6/conf/context.xml
           subPath: context.xml
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-tomcat6
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
         - mountPath: /var/lib/tomcat6/logs
           subPath: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-log-tomcat6
           name: ${DMCLD_V1_BASE}-nfs-volume
@@ -61,38 +61,38 @@ spec:
           protocol: UDP
         volumeMounts:  
         - mountPath: /dinstar/cfg # 这里是路径
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-simsrv
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
         - mountPath: /var/log
           subPath: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-log-simsrv
           name: ${DMCLD_V1_BASE}-nfs-volume
       volumes:
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-simsrv
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
             - key: first # 使用configmap里面key对应的数据
-              path: config_test # 代表/dinstar/cfg/config文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-config_test
+              path: config # 代表/dinstar/cfg/config文件
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-config
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
             - key: first # 使用configmap里面key对应的数据
-              path: config_test # 代表/dinstar/cfg/config文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-db
+              path: config # 代表/dinstar/cfg/config文件
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-db
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
             - key: javaweb-db # 使用configmap里面key对应的数据
               path: database.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/database.properties文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-simcloud
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-simcloud
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
             - key: javaweb-simcloud # 使用configmap里面key对应的数据
               path: simcloud.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/simcloud.properties文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-tomcat6
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
             items:
             - key: tomcat6 # 使用configmap里面key对应的数据
               path: context.xml # 代表/var/lib/tomcat6/conf/context.xml文件

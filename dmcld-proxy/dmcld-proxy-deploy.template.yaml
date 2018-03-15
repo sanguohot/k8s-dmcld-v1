@@ -4,7 +4,7 @@ metadata:
   name: ${DMCLD_V1_PROXY_NAME}-deploy
   namespace: ${DMCLD_V1_NAMESPACE}
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -27,13 +27,13 @@ spec:
         - containerPort: ${DMCLD_V1_PROXY_PORT}
           protocol: ${DMCLD_V1_PROXY_PROTOCOL}
         volumeMounts:  
-        - mountPath: /etc/config_test # 这里是路径
+        - mountPath: /etc/config # 这里是路径
           name: ${DMCLD_V1_PROXY_NAME}-volume
       volumes:
         - name: ${DMCLD_V1_PROXY_NAME}-volume
           configMap:
-            name: ${DMCLD_V1_PROXY_NAME}-config_test
+            name: ${DMCLD_V1_PROXY_NAME}-config
             items:
             - key: ${DMCLD_V1_PROXY_CONFIG_KEY} # 使用configmap里面key对应的数据
-              path: config_test # 代表/etc/config_test/config文件
+              path: config # 代表/etc/config/config文件
       restartPolicy: Always

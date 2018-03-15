@@ -47,5 +47,5 @@ data:
     }
 kind: ConfigMap
 metadata:
-  name: ${DMCLD_V1_PROXY_NAME}-config_test
+  name: ${DMCLD_V1_PROXY_NAME}-config
   namespace: ${DMCLD_V1_NAMESPACE}
