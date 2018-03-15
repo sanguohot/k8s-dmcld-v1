@@ -24,7 +24,28 @@ data:
           "HostPort":"8080",
           "timeout":10
     }
+  proxy-2022: |
+    {
+         "log":{
+                 "path":"/opt/log",
+                 "maxAge":0,
+                 "rotation":0
+          },
+          "mysql":{
+                  "name":"${DMCLD_V1_PROXY_DB_ADDRESS}",
+                  "user":"${DMCLD_V1_PROXY_DB_USER}",
+                  "pass":"${DMCLD_V1_PROXY_DB_PASSWORD}",
+                  "port":"${DMCLD_V1_PROXY_DB_PORT}",
+                  "dbname":"${DMCLD_V1_PROXY_DB_NAME}"
+          },
+          "timeout":{
+                  "udp":5,
+                  "cacheupdate":10,
+                  "cacheexpir":5,
+                  "cacheclean":10
+          }
+    }
 kind: ConfigMap
 metadata:
-  name: ${DMCLD_V1_PROXY_NAME}-config
+  name: ${DMCLD_V1_PROXY_NAME}-config_test
   namespace: ${DMCLD_V1_NAMESPACE}

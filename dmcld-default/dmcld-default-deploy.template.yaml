@@ -11,7 +11,7 @@ spec:
         app: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-deploy
     spec:
       nodeSelector:
-        nodeResource: "large"
+        nodeResource: "${DMCLD_V1_NODE_RESOURCE}"
       containers:
       - name: web
         image: registry.cn-hangzhou.aliyuncs.com/dmcloudv1/javaweb:latest
@@ -30,15 +30,15 @@ spec:
         #注意java配置以文件的形式挂载防止目录被覆盖
         - mountPath: /var/lib/tomcat6/webapps/web/WEB-INF/classes/database.properties
           subPath: database.properties
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-db
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-db
         - mountPath: /var/lib/tomcat6/webapps/web/WEB-INF/classes/simcloud.properties
           subPath: simcloud.properties
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-simcloud
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-simcloud
         - mountPath: /dinstar/cfg # 这里是路径
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-config
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-config_test
         - mountPath: /var/lib/tomcat6/conf/context.xml
           subPath: context.xml
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-tomcat6
         - mountPath: /var/lib/tomcat6/logs
           subPath: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-log-tomcat6
           name: ${DMCLD_V1_BASE}-nfs-volume
@@ -61,38 +61,38 @@ spec:
           protocol: UDP
         volumeMounts:  
         - mountPath: /dinstar/cfg # 这里是路径
-          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
+          name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-simsrv
         - mountPath: /var/log
           subPath: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-log-simsrv
           name: ${DMCLD_V1_BASE}-nfs-volume
       volumes:
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-simsrv
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-simsrv
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
             items:
             - key: first # 使用configmap里面key对应的数据
-              path: config # 代表/dinstar/cfg/config文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-config
+              path: config_test # 代表/dinstar/cfg/config文件
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-config_test
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
             items:
             - key: first # 使用configmap里面key对应的数据
-              path: config # 代表/dinstar/cfg/config文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-db
+              path: config_test # 代表/dinstar/cfg/config文件
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-db
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
             items:
             - key: javaweb-db # 使用configmap里面key对应的数据
               path: database.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/database.properties文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-javaweb-simcloud
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-javaweb-simcloud
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
             items:
             - key: javaweb-simcloud # 使用configmap里面key对应的数据
               path: simcloud.properties # 代表/var/lib/tomcat6/webapps/web/WEB-INFO/classes/simcloud.properties文件
-        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config-tomcat6
+        - name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test-tomcat6
           configMap:
-            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config
+            name: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-config_test
             items:
             - key: tomcat6 # 使用configmap里面key对应的数据
               path: context.xml # 代表/var/lib/tomcat6/conf/context.xml文件
