@@ -16,9 +16,10 @@ spec:
     - name: simsrv-command
       port: 2022
       targetPort: 2022
+      nodePort: ${DMCLD_V1_SIMSRV_NODE_PORT}
       protocol: UDP
     - port: 8888
       targetPort: 8888
       name: web
       protocol: TCP
-  type: ClusterIP
+  type: NodePort
