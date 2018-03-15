@@ -20,6 +20,7 @@ spec:
       protocol: UDP
     - port: 8888
       targetPort: 8888
+      nodePort: ${DMCLD_V1_JAVAWEB_NODE_PORT}
       name: web
       protocol: TCP
   type: NodePort
