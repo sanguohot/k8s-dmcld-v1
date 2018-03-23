@@ -8,6 +8,12 @@ elif [ ${DMCLD_V1_SERVER_ID} = "test" ] ; then
     IN_CONFIG_FILE=config_test
 elif [ ${DMCLD_V1_SERVER_ID} = "other" ] ; then
     IN_CONFIG_FILE=config_other
+elif [ ${DMCLD_V1_SERVER_ID} = "123456" ] ; then
+    IN_CONFIG_FILE=config_123456
+elif [ ${DMCLD_V1_SERVER_ID} = "brucetest" ] ; then
+    IN_CONFIG_FILE=config_brucetest
+elif [ ${DMCLD_V1_SERVER_ID} = "brucetest1" ] ; then
+    IN_CONFIG_FILE=config_brucetest1
 else
     IN_CONFIG_FILE=config_other
 fi

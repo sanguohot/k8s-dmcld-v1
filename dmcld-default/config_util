@@ -1,4 +1,4 @@
-DMCLD_V1_SERVER_IDS=qnsoft,other,test
+DMCLD_V1_SERVER_IDS=qnsoft,other,test,123456,brucetest,brucetest1
 
 DMCLD_V1_JAVAWEB_REDIS_ADDRESS=db-1001-redis
 DMCLD_V1_JAVAWEB_REDIS_PORT=6379

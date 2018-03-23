@@ -10,8 +10,8 @@ spec:
     app: ${DMCLD_V1_BASE}-${DMCLD_V1_SERVER_ID}-deploy
   ports:
     - name: simsrv-http
-      port: 8080
-      targetPort: 8080
+      port: ${DMCLD_V1_SIMSRV_WEB_PROXY_PORT} #8080->58080
+      targetPort: ${DMCLD_V1_SIMSRV_WEB_PROXY_PORT}
       nodePort: ${DMCLD_V1_SIMSRV_WEB_PROXY_PORT}
       protocol: TCP
     - name: simsrv-command
