@@ -12,6 +12,7 @@ spec:
     - name: simsrv-http
       port: 8080
       targetPort: 8080
+      nodePort: ${DMCLD_V1_SIMSRV_WEB_PROXY_PORT}
       protocol: TCP
     - name: simsrv-command
       port: 2022
