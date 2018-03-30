@@ -45,17 +45,18 @@ data:
                   "cacheclean":10
           }
     }
-    proxy-4042: |
-      {
-            "mysql":{
-                    "host":"${DMCLD_V1_PROXY_DB_ADDRESS}",
-                    "user":"${DMCLD_V1_PROXY_DB_USER}",
-                    "pass":"${DMCLD_V1_PROXY_DB_PASSWORD}",
-                    "port":"${DMCLD_V1_PROXY_DB_PORT}",
-                    "db":"${DMCLD_V1_PROXY_DB_NAME}"
-                    "db_all":"${DMCLD_V1_PROXY_DB_ALL_NAME}"
-            }
-      }
+  proxy-4042: |
+    {
+          "mysql":{
+                  "host":"${DMCLD_V1_PROXY_DB_ADDRESS}",
+                  "user":"${DMCLD_V1_PROXY_DB_USER}",
+                  "pass":"${DMCLD_V1_PROXY_DB_PASSWORD}",
+                  "port":"${DMCLD_V1_PROXY_DB_PORT}",
+                  "db":"${DMCLD_V1_PROXY_DB_NAME}",
+                  "db_all":"${DMCLD_V1_PROXY_DB_ALL_NAME}"
+          },
+          "default_svc_port":"${DMCLD_V1_PROXY_DEFAULT_SVC_PORT}"
+    }
 kind: ConfigMap
 metadata:
   name: ${DMCLD_V1_PROXY_NAME}-config
