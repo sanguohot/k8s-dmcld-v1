@@ -55,7 +55,7 @@ data:
                   "db":"${DMCLD_V1_PROXY_DB_NAME}",
                   "db_all":"${DMCLD_V1_PROXY_DB_ALL_NAME}"
           },
-          "default_svc_port":"${DMCLD_V1_PROXY_DEFAULT_SVC_PORT}"
+          "default_svc_port":${DMCLD_V1_PROXY_DEFAULT_SVC_PORT}
     }
 kind: ConfigMap
 metadata:
