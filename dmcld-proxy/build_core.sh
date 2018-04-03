@@ -6,15 +6,15 @@ DMCLD_V1_PROXY_NAME=
 DMCLD_V1_PROXY_IMAGE=
 DMCLD_V1_PROXY_PROTOCOL=
 DMCLD_V1_PROXY_CONFIG_KEY="first"
-if [ ${DMCLD_V1_PROXY_PORT} -eq ${DMCLD_V1_PROXY_PORT_TCP_8888} ] ; then
+if [ ${DMCLD_V1_PROXY_PORT} -eq 8888 ] ; then
     IN_CONFIG_FILE=config_tcp_8888
-elif [ ${DMCLD_V1_PROXY_PORT} -eq ${DMCLD_V1_PROXY_PORT_TCP_8080}  ] ; then
+elif [ ${DMCLD_V1_PROXY_PORT} -eq 8080  ] ; then
     IN_CONFIG_FILE=config_tcp_8080
-elif [ ${DMCLD_V1_PROXY_PORT} -eq ${DMCLD_V1_PROXY_PORT_UDP_2022}  ] ; then
+elif [ ${DMCLD_V1_PROXY_PORT} -eq 2022  ] ; then
     IN_CONFIG_FILE=config_udp_2022
-elif [ ${DMCLD_V1_PROXY_PORT} -eq ${DMCLD_V1_PROXY_PORT_UDP_4042}  ] ; then
+elif [ ${DMCLD_V1_PROXY_PORT} -eq 4042  ] ; then
     IN_CONFIG_FILE=config_udp_4042
-elif [ ${DMCLD_V1_PROXY_PORT} -eq ${DMCLD_V1_PROXY_IMAGE_5052}  ] ; then
+elif [ ${DMCLD_V1_PROXY_PORT} -eq 5052  ] ; then
     IN_CONFIG_FILE=config_udp_5052
 else
     echo "\nUnexpeced error proxy port ${DMCLD_V1_PROXY_PORT}\n"

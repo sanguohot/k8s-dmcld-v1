@@ -1,5 +1,5 @@
 #!/bin/bash
-source dmcld-proxy/config
+source dmcld-proxy/config_util
 yaml_array=(dmcld-proxy-deploy.template.yaml dmcld-proxy-configmap.template.yaml dmcld-proxy-service.template.yaml proxy-config.template)
 #要将$a分割开，先存储旧的分隔符
 OLD_IFS="$IFS"
