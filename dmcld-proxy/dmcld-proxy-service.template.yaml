@@ -11,6 +11,6 @@ spec:
   ports:
     - port: ${DMCLD_V1_PROXY_PORT}
       targetPort: ${DMCLD_V1_PROXY_PORT}
-      nodePort: ${DMCLD_V1_PROXY_PORT}
+      nodePort: ${DMCLD_V1_PROXY_NODE_PORT}
       protocol: ${DMCLD_V1_PROXY_PROTOCOL}
   type: NodePort
